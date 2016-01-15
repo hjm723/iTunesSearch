@@ -1,0 +1,8 @@
+#content {
+  font-family: 'Montserrat', sans-serif;
+}
+.panel {
+  border: none;
+  border-radius: 2px;
+  box-shadow: 0 1px 4px rgba(0,0,0,.3);
+}

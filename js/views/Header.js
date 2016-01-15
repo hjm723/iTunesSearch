@@ -12,13 +12,16 @@ var Header = React.createClass({
       <Navbar>
         <Navbar.Header>
           <Navbar.Brand>
-            <a href="#">React-Bootstrap</a>
+            <a href="#">Podcast</a>
           </Navbar.Brand>
+          <Navbar.Toggle />
         </Navbar.Header>
-        <Nav>
-          <NavItem eventKey={1} href="#"><Glyphicon glyph="headphones"/> New playList</NavItem>
-          <NavItem eventKey={2} href="#"><Glyphicon glyph="search"/> Search</NavItem>
-        </Nav>
+        <Navbar.Collapse>
+          <Nav>
+            <NavItem active="true" eventKey={1} href="#"><Glyphicon glyph="headphones"/> New episodes</NavItem>
+            <NavItem eventKey={2} href="#"><Glyphicon glyph="search"/> Search</NavItem>
+          </Nav>
+        </Navbar.Collapse>
       </Navbar>
     );
   }

@@ -23,10 +23,11 @@ var List = React.createClass({
               <div className="container">
                 <Row className="show-grid">
                   <Col xs={1}>
-                    <Image src="http://is3.mzstatic.com/image/thumb/Music/v4/9f/30/01/9f300152-b977-fbf0-979d-92cf052d6133/source/60x60bb.jpg" rounded />
+                    <Image src="http://is3.mzstatic.com/image/thumb/Music/v4/9f/30/01/9f300152-b977-fbf0-979d-92cf052d6133/source/60x60bb.jpg" responsive />
                   </Col>
                   <Col xs={11}>
                     bbb
+                    <p className="text-muted"><small>2013-03-13T07:00:00Z</small></p>
                   </Col>
                 </Row>
               </div>
