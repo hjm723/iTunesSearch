@@ -9,7 +9,6 @@ var ITUNES_API_BASE = 'https://itunes.apple.com/search?term=music&media=music&en
 var EpisodeActions = {
   getList: function(page) {
     var url = ITUNES_API_BASE + encodeURIComponent(page) + '&callback=?';
-    console.log(url);
     $.getJSON(url,
     function(res){
       AppDispatcher.dispatch({

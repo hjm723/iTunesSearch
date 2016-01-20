@@ -10,10 +10,11 @@ var Top = require('./views/Top');
 var SearchTop = require('./views/SearchTop');
 
 var Index = React.createClass({
+
   render: function(){
     return (
       <div>
-        <Header />
+        <Header selected={this.props.children.type.displayName}/>
         {this.props.children}
       </div>
     );
