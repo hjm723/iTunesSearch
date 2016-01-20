@@ -1,48 +1,60 @@
 var React = require('react');
 var Row = require('react-bootstrap').Row;
-var Col = require('react-bootstrap').Col;
-var Panel = require('react-bootstrap').Panel;
-var Image = require('react-bootstrap').Image;
+var Pager = require('react-bootstrap').Pager;
+var PageItem = require('react-bootstrap').PageItem;
+var EpisodeActions = require('../actions/EpisodeActions');
+var ReactPropTypes = React.PropTypes;
+var EpisodeItem = require('./EpisodeItem');
 
-var QIITA_REACTJS_ENTRY_URL = 'https://itunes.apple.com/search?term=music&media=music&entity=musicTrack&country=jp&lang=ja_jp&limit=10';
-
-    // fetch(QIITA_REACTJS_ENTRY_URL)
-    // .then((response) => response.json())
-    // .then((responseData) => {
-    //   console.log(responseData);
-    //
-    // });
 
 var List = React.createClass({
+  propTypes: {
+    allEpisodes: ReactPropTypes.object.isRequired,
+  },
+  getInitialState() {
+    return {
+      page: 1
+    };
+  },
+  componentDidMount: function() {
+    EpisodeActions.getList(this.state.page);
+  },
+  componentWillUnmount: function() {
+    EpisodeActions.deleteAll();
+  },
   render: function() {
+    if (Object.keys(this.props.allEpisodes).length < 1) {
+      return null;
+    }
+    var allEpisodes = this.props.allEpisodes;
+    var episodes = [];
+    for (var key in allEpisodes) {
+      episodes.push(<EpisodeItem key={allEpisodes[key].trackId} obj={allEpisodes[key]} />);
+    }
     return (
       <div className="container">
         <Row className="show-grid">
-          <Col xs={12}>
-            <Panel >
-              <div className="container">
-                <Row className="show-grid">
-                  <Col xs={1}>
-                    <Image src="http://is3.mzstatic.com/image/thumb/Music/v4/9f/30/01/9f300152-b977-fbf0-979d-92cf052d6133/source/60x60bb.jpg" responsive />
-                  </Col>
-                  <Col xs={11}>
-                    bbb
-                    <p className="text-muted"><small>2013-03-13T07:00:00Z</small></p>
-                  </Col>
-                </Row>
-              </div>
-            </Panel>
-          </Col>
-          <Col xs={12}>
-            <Panel >
-              Basic panel example
-            </Panel>
-          </Col>
+          {episodes}
         </Row>
+        <Pager>
+          <PageItem previous onClick={this.getPreviousPage}>&larr; Previous Page</PageItem>
+          <PageItem next onClick={this.getNextPage}>Next Page &rarr;</PageItem>
+        </Pager>
       </div>
     );
+  },
+  getPreviousPage: function(e) {
+    var previousPage = this.state.page - 1;
+    this.setState({page : previousPage});
+    EpisodeActions.deleteAll();
+    EpisodeActions.getList(previousPage);
+  },
+  getNextPage: function(e) {
+    var nextPage = this.state.page + 1;
+    this.setState({page : nextPage});
+    EpisodeActions.deleteAll();
+    EpisodeActions.getList(nextPage);
   }
-
 });
 
 module.exports = List;

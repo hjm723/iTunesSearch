@@ -1,19 +1,19 @@
 var React = require('react');
-var AppStores = require('../stores/AppStores');
-var List = require('./List');
+var SearchStores = require('../stores/SearchStores');
+var Search = require('./Search');
 
 function getState() {
   return {
-    allEpisodes: AppStores.getAll()
+    resultEpisodes: SearchStores.getAll()
   };
 }
 
-var Top = React.createClass({
+var SearchTop = React.createClass({
   getInitialState: function() {
     return getState();
   },
   componentDidMount: function() {
-    AppStores.addChangeListener(this._onChange);
+    SearchStores.addChangeListener(this._onChange);
   },
   _onChange: function() {
     if (this.isMounted()) {
@@ -23,10 +23,10 @@ var Top = React.createClass({
   render: function() {
     return (
       <div>
-        <List allEpisodes={this.state.allEpisodes} />
+        <Search resultEpisodes={this.state.resultEpisodes} />
       </div>
     );
   }
 });
 
-module.exports = Top;
+module.exports = SearchTop;

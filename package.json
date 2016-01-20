@@ -19,9 +19,16 @@
     "babel-preset-react": "^6.3.13",
     "babelify": "^7.2.0",
     "envify": "^3.4.0",
+    "flux": "^2.1.1",
+    "history": "^1.17.0",
+    "jquery": "^2.2.0",
+    "keymirror": "^0.1.1",
+    "object-assign": "^4.0.1",
     "react": "^0.14.6",
     "react-bootstrap": "^0.28.2",
-    "react-dom": "^0.14.6"
+    "react-dom": "^0.14.6",
+    "react-router": "^1.0.3",
+    "superagent": "^1.6.1"
   },
   "devDependencies": {
     "browserify": "^13.0.0",
