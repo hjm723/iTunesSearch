@@ -2,7 +2,7 @@
 
 iTunesAPIを使用
 
-http://hjm723.github.io/reactPodcastSearch
+http://hjm723.github.io/iTunesSearch
 
 ### use
 
