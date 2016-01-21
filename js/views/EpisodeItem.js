@@ -17,19 +17,19 @@ var EpisodeItem = React.createClass({
     return (
       <Col xs={12}>
         <Panel >
-            <Row>
-              <Col xs={3} sm={1} className="center-block">
-                <Image src={obj.icon_url} responsive />
-              </Col>
-              <Col xs={9} sm={6}>
-                <p>{obj.trackName}</p>
-                <p>{obj.artistName}</p>
-                <p className="text-muted"><small>{obj.releaseDate}</small></p>
-              </Col>
-              <Col xs={12} sm={5}>
-                <p className="audio"><audio src={obj.preview} controls></audio></p>
-              </Col>
-            </Row>
+          <Row>
+            <Col xs={3} sm={1} className="center-block">
+              <Image src={obj.icon_url} responsive />
+            </Col>
+            <Col xs={9} sm={6}>
+              <p>{obj.trackName}</p>
+              <p>{obj.artistName}</p>
+              <p className="text-muted"><small>{obj.releaseDate}</small></p>
+            </Col>
+            <Col xs={12} sm={5}>
+              <p className="audio"><audio src={obj.preview} controls></audio></p>
+            </Col>
+          </Row>
         </Panel>
       </Col>
     );

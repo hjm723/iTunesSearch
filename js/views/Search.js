@@ -16,7 +16,7 @@ var Search = React.createClass({
   },
   getInitialState() {
     return {
-      textValue: "Find a podcast"
+      textValue: "Search"
     };
   },
   componentWillUnmount: function() {
@@ -35,10 +35,8 @@ var Search = React.createClass({
       <Grid>
         <Row>
           <Col xs={12}>
-            <form>
-              <Input type="text" label="" placeholder={this.state.textValue} onChange={this.changeText} />
-              <Button type="button" vertical block bsStyle="primary" onClick={this.search}><Glyphicon glyph="search"/> Search</Button>
-            </form>
+            <Input type="text" label="" placeholder={this.state.textValue} onChange={this.changeText} />
+            <Button type="button" vertical block bsStyle="primary" onClick={this.search}><Glyphicon glyph="search"/> Search</Button>
           </Col>
         </Row>
         <hr />

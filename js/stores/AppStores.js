@@ -9,12 +9,14 @@ var _articles = {};
 
 function create(articleList) {
   for (var i in articleList) {
+    var ms = Date.parse(articleList[i].releaseDate);
+    var dt = new Date(ms);
     var trackId = articleList[i].trackId;
     _articles[trackId] = {
       trackId: trackId,
       artistName: articleList[i].artistName,
       trackName: articleList[i].trackName,
-      releaseDate: articleList[i].releaseDate,
+      releaseDate: dt.toLocaleString(),
       icon_url: articleList[i].artworkUrl60,
       preview: articleList[i].previewUrl
     }
