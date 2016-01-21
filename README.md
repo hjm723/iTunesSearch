@@ -1,4 +1,4 @@
-# reactPodcastSearch
+# iTunesSearch
 
 iTunesAPIを使用
 
