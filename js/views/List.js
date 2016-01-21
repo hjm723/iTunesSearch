@@ -1,5 +1,8 @@
 var React = require('react');
+var Grid = require('react-bootstrap').Grid;
 var Row = require('react-bootstrap').Row;
+var Tabs = require('react-bootstrap').Tabs;
+var Tab = require('react-bootstrap').Tab;
 var Pager = require('react-bootstrap').Pager;
 var PageItem = require('react-bootstrap').PageItem;
 var EpisodeActions = require('../actions/EpisodeActions');
@@ -32,15 +35,15 @@ var List = React.createClass({
       episodes.push(<EpisodeItem key={allEpisodes[key].trackId} obj={allEpisodes[key]} />);
     }
     return (
-      <div className="container">
-        <Row className="show-grid">
+      <Grid>
+        <Row>
           {episodes}
         </Row>
         <Pager>
           <PageItem previous onClick={this.getPreviousPage}>&larr; Previous Page</PageItem>
           <PageItem next onClick={this.getNextPage}>Next Page &rarr;</PageItem>
         </Pager>
-      </div>
+      </Grid>
     );
   },
   getPreviousPage: function(e) {

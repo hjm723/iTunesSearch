@@ -8,7 +8,6 @@ var ITUNES_PROPS_URL = '&media=music&entity=musicTrack&country=jp&lang=ja_jp&lim
 
 var SearchActions = {
   searchList: function(word) {
-    console.log(encodeURIComponent(word));
     var url = ITUNES_BASE_URL + encodeURIComponent(word) + ITUNES_PROPS_URL;
     $.getJSON(url,
     function(res){

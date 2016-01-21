@@ -1,4 +1,5 @@
 var React = require('react');
+var Grid = require('react-bootstrap').Grid;
 var Row = require('react-bootstrap').Row;
 var Col = require('react-bootstrap').Col;
 var Input = require('react-bootstrap').Input;
@@ -31,8 +32,8 @@ var Search = React.createClass({
       episodes.push(<EpisodeItem key={resultEpisodes[key].trackId} obj={resultEpisodes[key]} />);
     }
     return (
-      <div className="container">
-        <Row className="show-grid">
+      <Grid>
+        <Row>
           <Col xs={12}>
             <form>
               <Input type="text" label="" placeholder={this.state.textValue} onChange={this.changeText} />
@@ -41,12 +42,10 @@ var Search = React.createClass({
           </Col>
         </Row>
         <hr />
-        <Row className="show-grid">
-          <Col xs={12}>
-            {episodes}
-          </Col>
+        <Row>
+          {episodes}
         </Row>
-      </div>
+      </Grid>
     );
   },
   search:function(e){

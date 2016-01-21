@@ -22,9 +22,7 @@ var Top = React.createClass({
   },
   render: function() {
     return (
-      <div>
-        <List allEpisodes={this.state.allEpisodes} />
-      </div>
+      <List allEpisodes={this.state.allEpisodes} />
     );
   }
 });

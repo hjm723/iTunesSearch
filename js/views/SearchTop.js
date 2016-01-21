@@ -22,9 +22,7 @@ var SearchTop = React.createClass({
   },
   render: function() {
     return (
-      <div>
-        <Search resultEpisodes={this.state.resultEpisodes} />
-      </div>
+      <Search resultEpisodes={this.state.resultEpisodes} />
     );
   }
 });

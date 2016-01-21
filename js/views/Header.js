@@ -48,8 +48,12 @@ var Header = React.createClass({
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav>
-            <li className={this.state.topPageStyle}><Link to={episodeHref} className="user-icon"><Glyphicon glyph="headphones"/> New episodes</Link></li>
-            <li className={this.state.searchPageStyle}><Link to={searchHref} className="user-icon"><Glyphicon glyph="search"/> Search</Link></li>
+            <li className={this.state.topPageStyle}>
+              <Link to={episodeHref} className="user-icon"><Glyphicon glyph="headphones"/> New episodes</Link>
+            </li>
+            <li className={this.state.searchPageStyle}>
+              <Link to={searchHref} className="user-icon"><Glyphicon glyph="search"/> Search</Link>
+            </li>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
