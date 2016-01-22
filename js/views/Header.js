@@ -42,7 +42,7 @@ var Header = React.createClass({
       <Navbar>
         <Navbar.Header>
           <Navbar.Brand>
-            <a href="#">Podcast</a>
+            <a href="#">iTunes Search</a>
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>
