@@ -16,7 +16,8 @@ var List = React.createClass({
   },
   getInitialState() {
     return {
-      page: 1
+      page: 1,
+      loaded: false,
     };
   },
   componentDidMount: function() {
@@ -27,7 +28,7 @@ var List = React.createClass({
   },
   render: function() {
     if (Object.keys(this.props.allEpisodes).length < 1) {
-      return null;
+      return this.renderLoadingView();
     }
     var allEpisodes = this.props.allEpisodes;
     var episodes = [];
@@ -44,6 +45,13 @@ var List = React.createClass({
           <PageItem next onClick={this.getNextPage}>Next Page &rarr;</PageItem>
         </Pager>
       </Grid>
+    );
+  },
+  renderLoadingView: function() {
+    return (
+      <div id="loading">
+        <span className="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span> Loading...
+      </div>
     );
   },
   getPreviousPage: function(e) {

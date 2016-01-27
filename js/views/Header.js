@@ -14,12 +14,14 @@ var Header = React.createClass({
   getInitialState() {
     return {
       topPageStyle: "active",
-      searchPageStyle: ""
+      searchPageStyle: "",
+      favoritePageStyle: "",
     };
   },
   componentWillReceiveProps: function(nextProps) {
     var topPageStyle = "";
     var searchPageStyle = "";
+    var favoritePageStyle = "";
     switch (nextProps.selected) {
       case 'Top':
         topPageStyle = "active";
@@ -27,17 +29,22 @@ var Header = React.createClass({
       case 'SearchTop':
         searchPageStyle = "active";
         break;
+      case 'FavoriteTop':
+        favoritePageStyle = "active";
+        break;
       default:
         topPageStyle = "active";
     }
     this.setState({
       topPageStyle : topPageStyle,
-      searchPageStyle: searchPageStyle
+      searchPageStyle: searchPageStyle,
+      favoritePageStyle: favoritePageStyle
     });
   },
   render: function() {
     var episodeHref = "/";
     var searchHref = "/search/";
+    var favoriteHref = "/favorite/";
     return (
       <Navbar>
         <Navbar.Header>
@@ -49,10 +56,13 @@ var Header = React.createClass({
         <Navbar.Collapse>
           <Nav>
             <li className={this.state.topPageStyle}>
-              <Link to={episodeHref} className="user-icon"><Glyphicon glyph="headphones"/> New episodes</Link>
+              <Link to={episodeHref} ><Glyphicon glyph="headphones"/> New episodes</Link>
             </li>
             <li className={this.state.searchPageStyle}>
-              <Link to={searchHref} className="user-icon"><Glyphicon glyph="search"/> Search</Link>
+              <Link to={searchHref} ><Glyphicon glyph="search"/> Search</Link>
+            </li>
+            <li className={this.state.favoritePageStyle}>
+              <Link to={favoriteHref} ><Glyphicon glyph="star"/> Favorite</Link>
             </li>
           </Nav>
         </Navbar.Collapse>

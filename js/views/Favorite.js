@@ -10,7 +10,7 @@ var SearchActions = require('../actions/SearchActions');
 var EpisodeItem = require('./EpisodeItem');
 
 
-var Search = React.createClass({
+var Favorite = React.createClass({
   propTypes: {
     resultEpisodes: ReactPropTypes.object.isRequired,
   },
@@ -26,6 +26,10 @@ var Search = React.createClass({
     this.setState({textValue: e.target.value});
   },
   render: function() {
+
+
+
+
     var resultEpisodes = this.props.resultEpisodes;
     var episodes = [];
     for (var key in resultEpisodes) {
@@ -36,7 +40,7 @@ var Search = React.createClass({
         <Row>
           <Col xs={12}>
             <Input type="text" label="" placeholder={this.state.textValue} onChange={this.changeText} />
-            <Button type="button" vertical block bsStyle="primary" onClick={this.search}><Glyphicon glyph="search"/> Search</Button>
+            <Button type="button" vertical block bsStyle="primary" onClick={this.favorite}><Glyphicon glyph="search"/> favorite</Button>
           </Col>
         </Row>
         <hr />
@@ -46,17 +50,23 @@ var Search = React.createClass({
       </Grid>
     );
   },
-  renderLoadingView: function() {
-    return (
-      <div id="loading">
-        <span className="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span> Loading...
-      </div>
-    );
-  },
-  search:function(e){
-    SearchActions.searchList(this.state.textValue);
+  favorite:function(e){
+    // console.log(this.state.textValue);
+    // localStorage.foo = this.state.textValue;
+    // localStorage["foo"] = "bar";
+    // localStorage.setItem("foo","bar");
+
+    var time = new Date();
+    localStorage.setItem(time, this.state.textValue);
+    var key, value, html = [];
+    for(var i=0, len=localStorage.length; i<len; i++) {
+      key = localStorage.key(i);
+      value = localStorage.getItem(key);
+      console.log(value);
+    }
+    // localStorage.clear();
   },
 
 });
 
-module.exports = Search;
+module.exports = Favorite;

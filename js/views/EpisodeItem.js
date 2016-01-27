@@ -1,9 +1,11 @@
 var React = require('react');
+var Button = require('react-bootstrap').Button;
 var Grid = require('react-bootstrap').Grid;
 var Row = require('react-bootstrap').Row;
 var Col = require('react-bootstrap').Col;
 var Panel = require('react-bootstrap').Panel;
 var Image = require('react-bootstrap').Image;
+var Glyphicon = require('react-bootstrap').Glyphicon;
 var EpisodeActions = require('../actions/EpisodeActions');
 var ReactPropTypes = React.PropTypes;
 
